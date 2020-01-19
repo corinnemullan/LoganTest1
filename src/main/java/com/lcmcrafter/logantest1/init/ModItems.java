@@ -8,6 +8,8 @@ import net.minecraftforge.registries.ObjectHolder;
 
 @ObjectHolder(Main.MODID)
 public class ModItems {
+	
+	// Provide handles to the custom item and item block that have been registered
 	public static final Item EXAMPLE_ITEM = null;
 	public static final BlockItem EXAMPLE_ORE = null;
 }

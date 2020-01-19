@@ -1,7 +1,6 @@
 package com.lcmcrafter.logantest1;
 
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
@@ -32,29 +31,15 @@ public final class ModEventSubscriber {
 
 		final IForgeRegistry<Item> registry = event.getRegistry();
 		
+		// Obtain a block item for the "example ore" block registered in onRegisterBlocks
 		final Item.Properties properties = new Item.Properties().group(ModItemGroups.MOD_BLOCK_GROUP);
 		final BlockItem blockItem = new BlockItem(ModBlocks.EXAMPLE_ORE, properties);
 		
+		// Register the custom item and block item
 		registry.registerAll(
 				setup(new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)), "example_item"),
 				setup(blockItem, "example_ore")
 				);
-		
-		
-		
-//		// Automatically register BlockItems for all our Blocks
-//		// (We need to go over the entire registry so that we include any potential Registry Overrides)
-//		ForgeRegistries.BLOCKS.getValues().stream()
-//				// Filter out blocks that aren't from our mod
-//				.filter(block -> block.getRegistryName().getNamespace().equals(Main.MODID))
-//				.forEach(block -> {
-//					// Make the properties, and make it so that the item will be on our ItemGroup (CreativeTab)
-//					final Item.Properties properties = new Item.Properties().group(ModItemGroups.MOD_BLOCK_GROUP);
-//					// Create the new BlockItem with the block and its properties
-//					final BlockItem blockItem = new BlockItem(block, properties);
-//					// Setup the new BlockItem with the block's registry name and register it
-//					registry.register(setup(blockItem, block.getRegistryName()));
-//				});
 		
 	}
 			

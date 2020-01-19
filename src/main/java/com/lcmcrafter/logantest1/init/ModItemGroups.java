@@ -4,7 +4,6 @@ import java.util.function.Supplier;
 
 import com.lcmcrafter.logantest1.Main;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 
@@ -26,6 +25,7 @@ public class ModItemGroups {
 
 	}
 	
+	// Set up two new item groups in the Creative Tab, one for custom items and one for custom block items
 	public static final ItemGroup MOD_ITEM_GROUP = new ModItemGroup(Main.MODID, () -> new ItemStack(ModItems.EXAMPLE_ITEM));
 	public static final ItemGroup MOD_BLOCK_GROUP = new ModItemGroup(Main.MODID, () -> new ItemStack(ModItems.EXAMPLE_ORE));
 }
