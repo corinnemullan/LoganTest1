@@ -1,4 +1,4 @@
-# Project Title
+# Logan Test 1 Project
 
 Our First Minecraft Mod (A Fun Mother and Son Project)
 
@@ -6,7 +6,7 @@ Our First Minecraft Mod (A Fun Mother and Son Project)
 
 This project uses Minecraft Forge 1.15.1
 
-### What it Does
+## What it Does
 
 So far, this mod creates a custom item and a custom block.  Both appear in item groups in the Creative Tab and have custom textures.
 
