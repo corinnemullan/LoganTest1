@@ -5,6 +5,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
+import com.lcmcrafter.logantest1.init.ModBlocks;
 import com.lcmcrafter.logantest1.init.ModItemGroups;
 
 import net.minecraft.block.Block;
@@ -18,7 +19,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 @EventBusSubscriber(modid = Main.MODID, bus = EventBusSubscriber.Bus.MOD)
 public final class ModEventSubscriber {
 	
-	
 	@SubscribeEvent
 	public static void onRegisterBlocks(RegistryEvent.Register<Block> event) {
 		
@@ -31,23 +31,30 @@ public final class ModEventSubscriber {
 	public static void onRegisterItems(RegistryEvent.Register<Item> event) { 
 
 		final IForgeRegistry<Item> registry = event.getRegistry();
+		
+		final Item.Properties properties = new Item.Properties().group(ModItemGroups.MOD_BLOCK_GROUP);
+		final BlockItem blockItem = new BlockItem(ModBlocks.EXAMPLE_ORE, properties);
+		
 		registry.registerAll(
-				setup(new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)), "example_item")
+				setup(new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)), "example_item"),
+				setup(blockItem, "example_ore")
 				);
 		
-		// Automatically register BlockItems for all our Blocks
-		// (We need to go over the entire registry so that we include any potential Registry Overrides)
-		ForgeRegistries.BLOCKS.getValues().stream()
-				// Filter out blocks that aren't from our mod
-				.filter(block -> block.getRegistryName().getNamespace().equals(Main.MODID))
-				.forEach(block -> {
-					// Make the properties, and make it so that the item will be on our ItemGroup (CreativeTab)
-					final Item.Properties properties = new Item.Properties().group(ModItemGroups.MOD_BLOCK_GROUP);
-					// Create the new BlockItem with the block and its properties
-					final BlockItem blockItem = new BlockItem(block, properties);
-					// Setup the new BlockItem with the block's registry name and register it
-					registry.register(setup(blockItem, block.getRegistryName()));
-				});
+		
+		
+//		// Automatically register BlockItems for all our Blocks
+//		// (We need to go over the entire registry so that we include any potential Registry Overrides)
+//		ForgeRegistries.BLOCKS.getValues().stream()
+//				// Filter out blocks that aren't from our mod
+//				.filter(block -> block.getRegistryName().getNamespace().equals(Main.MODID))
+//				.forEach(block -> {
+//					// Make the properties, and make it so that the item will be on our ItemGroup (CreativeTab)
+//					final Item.Properties properties = new Item.Properties().group(ModItemGroups.MOD_BLOCK_GROUP);
+//					// Create the new BlockItem with the block and its properties
+//					final BlockItem blockItem = new BlockItem(block, properties);
+//					// Setup the new BlockItem with the block's registry name and register it
+//					registry.register(setup(blockItem, block.getRegistryName()));
+//				});
 		
 	}
 			

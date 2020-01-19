@@ -27,5 +27,5 @@ public class ModItemGroups {
 	}
 	
 	public static final ItemGroup MOD_ITEM_GROUP = new ModItemGroup(Main.MODID, () -> new ItemStack(ModItems.EXAMPLE_ITEM));
-	public static final ItemGroup MOD_BLOCK_GROUP = new ModItemGroup(Main.MODID, () -> new ItemStack(Item.BLOCK_TO_ITEM.get(ModBlocks.EXAMPLE_ORE)));
+	public static final ItemGroup MOD_BLOCK_GROUP = new ModItemGroup(Main.MODID, () -> new ItemStack(ModItems.EXAMPLE_ORE));
 }
