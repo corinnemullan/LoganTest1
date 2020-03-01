@@ -38,6 +38,7 @@ public final class ModEventSubscriber {
 		// Register the custom item and block item
 		registry.registerAll(
 				setup(new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)), "example_item"),
+				setup(new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)), "dragon_egg"),
 				setup(blockItem, "example_ore")
 				);
 		

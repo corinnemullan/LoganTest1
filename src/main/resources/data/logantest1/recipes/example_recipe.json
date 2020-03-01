@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "aa",
+        "aa"
+    ],
+    "key":
+    {
+        "a":
+        {
+            "item": "logantest1:example_item"
+        }
+    },
+    "result":
+    {
+        "item": "logantest1:dragon_egg"
+    }
+}
